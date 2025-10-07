@@ -63,9 +63,14 @@ const TextEditor = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-full w-full">
-        <p style={{ color: "rgb(107 70 255 / var(--tw-bg-opacity, 1))" }} className="text-xl text-gray-500 font-medium tracking-wider">
-          loading...
-        </p>
+        <div className="flex flex-col items-center space-y-4">
+          <div className="flex space-x-2">
+            <div className="w-3 h-3 bg-[#6b46ff] rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+            <div className="w-3 h-3 bg-[#6b46ff] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+            <div className="w-3 h-3 bg-[#6b46ff] rounded-full animate-bounce" style={{ animationDelay: '0.3s' }}></div>
+          </div>
+          <p className="text-[#6b46ff] font-medium tracking-wider">Loading</p>
+        </div>
       </div>
     )
   }
@@ -107,6 +112,7 @@ const TextEditor = () => {
             <div className="flex justify-end items-center space-x-4 mt-4">
               {val === "" ? null :
                 <button
+                  style={{ cursor: "pointer" }}
                   onClick={handleClear}
                   className="px-8 py-2 text-gray-600 border border-gray-300 rounded hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium"
                 >
@@ -114,6 +120,7 @@ const TextEditor = () => {
                 </button>
               }
               <button
+                style={{ cursor: "pointer" }}
                 onClick={saveText}
                 disabled={isSaving}
                 className="px-8 py-2 bg-[#6b46ff] text-white border border-[#6b46ff] rounded hover:bg-[#5a3ae6] transition-colors focus:outline-none focus:ring-2 focus:ring-[#6b46ff]/30 font-medium disabled:opacity-70 disabled:cursor-not-allowed"
